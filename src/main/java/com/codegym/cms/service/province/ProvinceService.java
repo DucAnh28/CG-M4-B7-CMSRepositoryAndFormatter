@@ -21,8 +21,8 @@ public class ProvinceService implements IProvinceService{
     }
 
     @Override
-    public void save(Province province) {
-        provinceRepository.save(province);
+    public Province save(Province province) {
+     return   provinceRepository.save(province);
     }
 
     @Override
