@@ -1,5 +1,9 @@
 package com.codegym.cms.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,13 +11,14 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "province_id")
+    @JsonManagedReference
     private Province province;
     public Customer() {}
 
